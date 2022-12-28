@@ -1,17 +1,18 @@
 // import './App.css';
 
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes, Outlet } from 'react-router-dom';
+import { useContext } from 'react';
 
-import "./categories.styles.scss";
+import './categories.styles.scss';
 
-import Home from "./routes/home/home.component";
-import Navigation from "./routes/navigation/navigation.component";
-import Authentication from "./routes/authentication/authentication.component";
+import Home from './routes/home/home.component';
+import Navigation from './routes/navigation/navigation.component';
+import Authentication from './routes/authentication/authentication.component';
+import Shop from './routes/shop/shop.component';
+import { userContext } from './contexts/user.context';
+
 // import { SignUp } from "./components/sign-up-form/sign-up-form.component";
 
-const Shop = () => {
-  return <div>shopping page</div>;
-};
 const App = () => {
   return (
     <Routes>

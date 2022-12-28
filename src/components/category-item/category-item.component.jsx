@@ -1,4 +1,4 @@
-import "./category-item.styles.scss";
+import './category-item.styles.scss';
 
 const CategoryItem = ({ category }) => {
   const { imageUrl, title } = category;
@@ -10,6 +10,7 @@ const CategoryItem = ({ category }) => {
       ></div>
       <div className='category-body-container'>
         <h2>{title}</h2>
+        {/* <p>Shop Now</p> */}
         <p>Shop Now</p>
       </div>
     </div>

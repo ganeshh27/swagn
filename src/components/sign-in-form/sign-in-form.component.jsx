@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
+  auth,
   createUserDocumentFromAuth,
   signInWithGooglePopup,
   SignInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase/firebase.utils";
-import { FormInput } from "../form-input/form-input.component";
-import "./sign-in-form.styles.scss";
-import { Button } from "../button/button.component";
+} from '../../utils/firebase/firebase.utils';
+import { FormInput } from '../form-input/form-input.component';
+import './sign-in-form.styles.scss';
+import { Button } from '../button/button.component';
+// import { userContext } from '../../contexts/user.context';
+// import { getRedirectResult } from 'firebase/auth';
 
 const defaultFormFields = {
   // displayName: "",
-  email: "",
-  password: "",
+  email: '',
+  password: '',
   // confirmPassword: "",
 };
 
@@ -19,6 +22,7 @@ export const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { email, password } = formFields;
+  // const { setCurrentUser } = useContext(userContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,36 +30,39 @@ export const SignIn = () => {
   };
 
   const resetFormFields = () => {
-    setFormFields = { ...defaultFormFields };
+    setFormFields({ ...defaultFormFields });
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    let response = await createUserDocumentFromAuth(user);
-    console.log(response);
+    await signInWithGooglePopup();
+    // console.log('user ', user);
+    // let response = await createUserDocumentFromAuth(user);
+    // setCurrentUser(user);
+    // console.log('userdocumentauth', response);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await SignInAuthUserWithEmailAndPassword(
+      const { user } = await SignInAuthUserWithEmailAndPassword(
         email,
         password
       );
 
-      console.log("response ", response);
+      console.log('response user', user);
+      // setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
-        case "auth/wrong-password":
-          alert("Incorrect Password for email");
+        case 'auth/wrong-password':
+          alert('Incorrect Password for email');
           break;
-        case "auth/user-not-found":
-          alert("User not found");
+        case 'auth/user-not-found':
+          alert('User not found');
           break;
         default:
-          console.log("user login error", error);
+          console.log('user login error', error);
       }
     }
   };
@@ -63,7 +70,7 @@ export const SignIn = () => {
   return (
     <div className='sign-in-container'>
       <h2>Already have an account? </h2>
-      <h3>Sign in with email and password</h3>
+      <h3>Sign In</h3>
 
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -88,7 +95,7 @@ export const SignIn = () => {
             Sign in
           </Button>
           <Button type='button' buttonType='google' onClick={signInWithGoogle}>
-            Google Sign In
+            SignIn With Google
           </Button>
         </div>
       </form>

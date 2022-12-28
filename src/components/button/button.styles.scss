@@ -2,32 +2,35 @@
   min-width: 165px;
   width: auto;
   height: 50px;
+  // margin-left: 10px;
+  border-radius: 5px;
   letter-spacing: 0.5px;
   line-height: 50px;
-  padding: 0 35px 0 35px;
+  // padding: 0 35px 0 35px;
   font-size: 15px;
-  background-color: black;
+  background-color: rgb(62, 95, 71);
   color: white;
   text-transform: uppercase;
-  font-family: "Open Sans Condensed";
+  font-family: 'Open Sans Condensed';
   font-weight: bolder;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  text-overflow: ellipsis;
 
   &:hover {
     background-color: white;
-    color: black;
+    color: rgb(62, 95, 71);
     border: 1px solid black;
   }
 
   &.google-sign-in {
-    background-color: #4285f4;
+    background-color: #8cb893;
     color: white;
 
     &:hover {
-      background-color: #357ae8;
+      background-color: rgb(62, 95, 71);
       border: none;
     }
   }
@@ -38,7 +41,7 @@
     border: 1px solid black;
 
     &:hover {
-      background-color: black;
+      background-color: rgb(62, 95, 71);
       color: white;
       border: none;
     }

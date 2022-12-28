@@ -1,7 +1,9 @@
 body {
   margin: 0;
-  font-family: "Bigelow Rules", cursive;
-  font-family: "Josefin Sans", sans-serif;
+  padding: 20px 40px;
+  font-family: 'Bigelow Rules', cursive;
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgb(149, 201, 164);
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif; */
@@ -10,6 +12,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

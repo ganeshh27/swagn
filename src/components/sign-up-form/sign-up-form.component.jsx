@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
-import { FormInput } from "../form-input/form-input.component";
-import "./sign-up-form.styles.scss";
-import { Button } from "./../button/button.component";
+} from '../../utils/firebase/firebase.utils';
+import { FormInput } from '../form-input/form-input.component';
+import './sign-up-form.styles.scss';
+import { Button } from './../button/button.component';
+// import { userContext } from '../../contexts/user.context';
 
 const defaultFormFields = {
-  displayName: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
+  displayName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
 };
 
 export const SignUp = () => {
@@ -19,20 +20,22 @@ export const SignUp = () => {
 
   const { displayName, email, password, confirmPassword, number } = formFields;
 
+  // const { setCurrentUser } = useContext(userContext);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
 
   const resetFormFields = () => {
-    setFormFields = { ...defaultFormFields };
+    setFormFields({ ...defaultFormFields });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("passwords do not match");
+      alert('passwords do not match');
       return;
     }
 
@@ -44,14 +47,14 @@ export const SignUp = () => {
       await createUserDocumentFromAuth(user, {
         displayName,
       });
-
+      // setCurrentUser(user);
       resetFormFields();
     } catch (error) {
-      console.log("error ", error);
-      if (error.code === "auth/email-already-in-use") {
-        alert("User already Exists");
+      console.log('error ', error);
+      if (error.code === 'auth/email-already-in-use') {
+        alert('User already Exists');
       } else {
-        console.log("user creation error", error);
+        console.log('user creation error', error);
       }
     }
   };

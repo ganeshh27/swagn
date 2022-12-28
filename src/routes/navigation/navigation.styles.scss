@@ -1,14 +1,29 @@
 .navigation {
   height: 70px;
   width: 100%;
+  background: linear-gradient(
+    to left,
+    rgb(33, 126, 47) 0%,
+    rgb(237, 240, 233) 100%
+  );
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
+
+  margin-bottom: 2px;
 
   .logo-container {
     height: 100%;
     width: 70px;
     padding: 25px;
+  }
+
+  #logo-title {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    justify-content: center;
+    font-size: large;
+    padding-left: 25px;
+    padding-top: 10px;
   }
 
   .nav-links-container {
@@ -17,6 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-left: auto;
 
     .nav-link {
       padding: 10px 15px;
